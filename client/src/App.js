@@ -33,7 +33,7 @@ class App extends React.Component {
       );
     });
 
-    //Update the chat if  a new message is broadcasted
+    //Update the chat if a new message is broadcasted
     this.socket.on("push", (msg) => {
       this.setState(
         (state) => ({

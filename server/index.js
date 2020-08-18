@@ -14,6 +14,11 @@ const mongoose = require("mongoose");
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use("/messages", (req, res) => {
+  Message.find()
+    .sort({ createdAt: -1 })
+    .then((msgs) => res.send(msgs));
+});
 
 io.on("connection", (socket) => {
   // Get last 10 messages from the database
