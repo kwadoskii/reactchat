@@ -61,6 +61,8 @@ class App extends React.Component {
     event.preventDefault();
 
     //Send the new message to the server
+    if(!this.state.name) return alert("Name is required.");
+    
     this.socket.emit("message", {
       name: this.state.name,
       content: this.state.content,
