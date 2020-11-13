@@ -64,6 +64,7 @@ export default function BottomBar({
             inputProps={{ "aria-label": "name" }}
             onChange={handleName}
             placeholder="Name"
+            required
             value={name}
           />
         </div>
